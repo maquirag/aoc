@@ -1,5 +1,6 @@
 # Day 1
-&fras "1.txt"           # read data
+Raw ← &i "lib/files.ua" "Raw"
+Raw 1                   # read data
 ⊜□¬⌕"\n\n".             # group by empty lines
 ⊐≡(∵parse regex "\\d+") # convert numbers
 
@@ -7,7 +8,7 @@
 ⊐≡/+ # sum each group
 /↥   # take the maximum
 
-∶    # Part 2
+:    # Part 2
 ⊐≡/+ # sum each group
 ⊏⍖.  # sort descending
 /+↙3 # sum of top 3
