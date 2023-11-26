@@ -1,3 +1,3 @@
-Raw ← &fras $"../input/_.txt"
-Lines ← ⊜∘≠@\n.
+Raw ← |1 &fras $"../input/_.txt"
+Lines ← |1 ⊜∘≠@\n. Raw
 Nums ← ⊐∵parse regex "\\d+"
