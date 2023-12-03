@@ -28,6 +28,6 @@ FirstLast ← /+ ×10_1 ⊢⍉ ⊏0_¯1 ⊏⍏≡⇌.
 # $ 7pqrstsixteen
 
 Words ← {"" "one" "two" "three" "four" "five" "six" "seven" "eight" "nine"}
-WordIndex ← ⊚ ≡⊐⌕ Words ¤ ⬚@ ↙+4⧻.
+WordIndex ← ⊚ ⊐≡⌕ Words ¤
 /+ ByLine!(FirstLast ⊂⊃WordIndex DigitIndex)
 # 54518
