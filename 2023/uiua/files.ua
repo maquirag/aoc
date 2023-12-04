@@ -1,4 +1,4 @@
 Raw ← |1 &fras $"../input/_.txt"
-ByLine! ← ⊜^1 ≠@\n.
-Lines ← |1 ⊐⊜∘≠@\n. Raw
+Row! ← ⊜^1 ≠@\n.
+Lines ← Row!∘ Raw
 Nums ← ⊐∵parse regex "\\d+"
