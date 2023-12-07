@@ -18,7 +18,7 @@ Hands                           # Part 1
 # 251927063
 
 Jokering ← "AKQT98765432J"
-JokerType ← ⊗:Types ⍜(°□|(⍜⊢+|⊂)=0⧻. ⊏⍖. ⊕⧻⊛. ⊃(▽¬|/+)=@J.)
+JokerType ← ⊗:Types ⍜(°□|⬚0⍜⊢+ ⊏⍖. ⊕⧻⊛. ⊃(▽¬|/+)=@J.)
 
 Hands # Part 2
 ≡(⊂⊂⊃(JokerType⊢|Str Jokering ⊢|⊢⇌))
