@@ -17,6 +17,11 @@ Follow!ZZZ "AAA" D 0
 # 16897
 
 # Part 2
-LastZ ← ¬≍"Z"⊝⊢⇌⍉
-Follow!LastZ ▽≡(=@A⊢⇌).S D 0
-# bad performance :(
+EndZ ← ≠@Z⊢⇌
+GCD ← ;⍢(⊃(-×⌊÷,,)∘)(≠0)
+LCM ← ÷⊃GCD×
+
+▽≡(=@A⊢⇌).S # all starting nodes
+≡(Follow!EndZ :⊙: D 0)
+/LCM
+# 16563603485021
