@@ -4,11 +4,11 @@ Data 4
 
 . # Part 1
 Game ← (
-  ¬∊:":|". # split by special char
-  ⊐⊜(♭⊐∵parse regex "\\d+")
+  ¬∊:":|".°□ # split by special char
+  ⊜(□♭≡⋕ regex "\\d+")
   ↘1 # discard the game ID
 )
-Matches ← /+♭⊞⌕ ∩⊔⊃⊢(⊢⇌)
+Matches ← /+♭⊞⌕ ∩°□⊃⊢(⊢⇌)
 Score ← ⌊ⁿ:2-1
 /+≡(Score Matches Game)
 # 33950
@@ -25,6 +25,5 @@ Copies ← (
   )(>⊙⧻)             # all cards processed
   ;;                 # clean stack
 )
-≡(Matches Game)
-/+ Copies
+/+ Copies ≡(Matches Game)
 # 14814534
