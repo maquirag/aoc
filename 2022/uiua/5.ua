@@ -1,21 +1,23 @@
-# Day 5
-Data ← &i "lib/files.ua" "Lines"
-Data 5                                 # read file
-⊜□≠1♭⊐≡(⊗"1").                         # separate parts
-⊐≡(▽≠@ .) ⍉⊐≡(≡(⊡1) ⬚@ ↯¯1_4) ⊢.       # slots
-⊐≡(⍜(↘1)(-1) ♭∵parse regex "\\d+") ⊡1: # moves
+# Day 5 - Supply Stacks
+Data ← &i "util.ua" "Lines"
+Data 5
+⊜□≠1♭≡(⊗"1"°□). # separate main parts
+≡(□▽≠@ .) ▽=1◿4⇡⧻. ⍉≡°□ °□⊢.
+Stacks ←
+≡(⍜(↘1|-1) ♭∵⋕ regex "\\d+") °□⊡1
+Moves ←
 
+# Part 1
 SplitStep ← ∧(⊂:↯¯1_3▽⊃⊢⍜⊢(>0))⊙[] # [[x y z]...]
 Move ← (|2
-  # [x y z] {□pegs}
-  ⊃(⊡2|⊡0|⊡1)         # extract values
-  ⊙⊃(↙⊙(⊔⊏))(⍜⊙(⊔⊏)↘) # pull top x from y
-  ⍜⊙(⊔⊏)⊂ :           # add the value to z
+  # [x y z] {□stacks}
+  ⊃(⊡2|⊡0|⊡1)           # extract values
+  ⊙⊃(↙⊙(°□⊏))(⍜⊙(°□⊏)↘) # pull top x from y
+  ⍜⊙(°□⊏)⊂ :            # add the value to z
 )
-,, # Part 1
-≡⊢; ⍢(:Move⊙:⊃(⊢)(↘1))(>0⧻.) SplitStep
+≡⊢; ⍢(:Move⊙:⊃(⊢)(↘1))(>0⧻.) SplitStep Moves Stacks
 # TGWSMRBPN
 
-⊙:: # Part 2
-≡⊢; ⍢(:Move⊙:⊃(⊢)(↘1))(>0⧻.)
+# Part 2
+≡⊢; ⍢(:Move⊙:⊃(⊢)(↘1))(>0⧻.) Moves Stacks
 # TZLTLWRNF
