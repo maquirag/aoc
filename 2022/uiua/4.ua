@@ -1,4 +1,4 @@
-# Day 4
+# Day 4 - Camp Cleanup
 Util ← &i "util.ua"
   Raw ← Util "Raw"
   Row! ← Util "Row!"

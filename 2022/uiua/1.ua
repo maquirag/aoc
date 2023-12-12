@@ -1,16 +1,14 @@
-# Day 1
-Data ← &i "lib/files.ua" "Raw"
-Data 1              # read data
-⊜□¬⌕"\n\n".         # group by empty lines
-≡(□∵⋕ regex "\\d+") # convert numbers
+# Day 1 - Calorie Counting
+Data ← &i "util.ua" "Raw"
+Data 1               # read data
+⊜(□⊜⋕≠@\n.)¬⌕"\n\n". # group by empty lines
+In ←
 
-.    # Part 1
-⊐≡/+ # sum each group
-/↥   # take the maximum
+# Part 1
+
+/↥ ≡(/+°□) In
 # 70116
 
-:    # Part 2
-⊐≡/+ # sum each group
-⊏⍖.  # sort descending
-/+↙3 # sum of top 3
+# Part 2
+/+ ↙3 ⊏⍖. ≡(/+°□) In
 # 206582
