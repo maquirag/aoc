@@ -2,7 +2,7 @@
 Data ← &i "files.ua" "Raw"
 Data 6
 
-⍉↯2_¯1 ⊐∵parse regex "\\d+"
+⍉↯2_¯1 ⊐∵⋕ regex "\\d+"
 
 . # Part 1
 Ways ← (
@@ -17,6 +17,6 @@ Ways ← (
 # 220320
 
 : # Part 2
-Kern ← ⊐(∵parse ≡/⊂ ∵$"_") ⍉
+Kern ← ≡(⋕∧(⊂:$"_"):"") ⍉
 Ways Kern
 # 34454850
