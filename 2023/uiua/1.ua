@@ -1,14 +1,10 @@
-Files ← &i "files.ua"
-  Raw ← Files "Raw"
-  Row! ← Files "Row!"
-Raw 1
-
-. # Part 1
-D ← /+ ×⇡10 ⊞= +@0⇡10
-T ← /+ ×10_1 ⊏0_¯1 ▽>0.
-/+ Row!(T D)
-
-: # Part 2
-W ← {"" "one" "two" "three" "four" "five" "six" "seven" "eight" "nine"}
-N ← /+ ×⇡10 ⊐≡⌕W¤
-/+ Row!(T +⊃D N)
+# AoC 2023/01 Trebuchet?!
+&fras "2023/input/1.txt"
+Parse!  ← ⊜^0⊸≠@\n
+Digits  ← ∵⍣⋕0
+Combine ← ⋕$"__"⊃⊢⊣▽⊸>₀
+Part₁   ← /+Parse!(Combine Digits)
+Numbers ← {"" "one" "two" "three" "four" "five" "six" "seven" "eight" "nine"}
+Words   ← /+ ×⇡10 ≡◇⌕Numbers¤
+Part₂   ← /+Parse!(Combine +⊃Words Digits)
+⊃Part₁Part₂
