@@ -1,7 +1,9 @@
 # AoC 2024/12 Garden Groups
 &fras "2024/input/12.txt"
 Read  ← -@@ ⊜∘⊸≠@\n
-RDP   ← ⧈/≠ 2 ⊂∞             # row differs from previous
-NEN   ← /+ ≡⍜(⍥(⇌⍉)|RDP) ⇡4¤ # not equal neighbours
-Part₁ ← /+× ⊜⊃⧻/+ ⟜NEN Read
-Part₁
+DP    ← ⧈₂/≠ ⊂∞          # differs from previous
+Rot!  ← /+ ≡⍜⍥(⇌⍉)^0 ⇡4¤ # apply at every rotation
+Part₁ ← /+× ⊜⊃⧻/+ ⟜Rot!DP Read
+ETLN  ← =⊸⬚∞↻¯1_¯1 # equals top left neighbor
+Part₂ ← /+× ⊜⊃⧻/+ ⟜Rot!(↧↥⊃(ETLN|≡DP|DP)) Read
+⊂⊃Part₁Part₂
