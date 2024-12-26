@@ -1,6 +1,6 @@
 # AoC 2024/10 Hoof It
 # Experimental!
-&fras "2024/input/10t.txt"
+&fras "2024/input/10.txt"
 In     ←                    # input
 Grid   ← ⊜(-@0)⊸≠@\n        # map of heights
 Heads  ← ⊚=0                # starting points

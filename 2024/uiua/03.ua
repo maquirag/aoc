@@ -8,4 +8,4 @@ Part₂ ← (
   ♭regex$ do\(\).*?don't\(\)
   /+≡Part₁
 )
-⊃Part₁Part₂
+⊂⊃Part₁Part₂

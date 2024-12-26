@@ -19,4 +19,4 @@ Anti₂ ← (
   ⊂∩(⊙◌⍢(⊂+⊢,,|InRange⊢)¤) # extend line
 )
 Part₂ ← ⧻◴/◇⊂≡⍚Group!(□Anti₂)
-⊃Part₁Part₂ A
+⊂⊃Part₁Part₂ A

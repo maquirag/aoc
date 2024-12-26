@@ -5,4 +5,4 @@ Rotations ← ≡⍥(⍉⇌)⇡4¤
 Part₁     ← /+♭⊂⊃(⌕⬚@\W⤸0_0|⌕)"XMAS" Rotations
 XMAS      ← ↧⊸⇌⬚@\W⤸0_0"MAS"
 Part₂     ← /+♭⌕XMAS Rotations
-⊃Part₁Part₂
+⊂⊃Part₁Part₂
