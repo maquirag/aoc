@@ -1,39 +1,37 @@
-# Day 5 - Fertilizer
-# INCOMPLETE
-Data ← &i "files.ua" "Raw"
-Data "5t"
+# AoC 2023/06 If You Give A Seed A Fertilizer
+# TODO
+# Hint: the ranges within each rule are all contiguous
+# Experimental!
+In ← &fras "2023/input/5t.txt"
+Parse ← (
+  °$"_\n\n_"   # sections
+  ⊓(⊜⋕⊸∊+@0⇡10 # seeds
+    # rules: [targetlow sourcelow rangesize]
+  | ⊜(□↯∞_3⊜⋕⊸∊+@0⇡10) ¬⊸⦷"\n\n"
+    # convert to: [sourcelow sourcehigh offset]
+    ≡⍜⍉⍚(⊟₃⊃(⊡1|/+↘1|/-⇌↙2))
+    ≡⍚(
+      ⍆ # sort, add low and high range
+      ◇⊂⊸(⊂⊂¯∞⊙0⊢◇⊢)
+      ◇⊂⟜(⊂⊙∞_0⊡1◇⊣)
+    )
+  )
+) # out: [seeds] [[rules]₇]
+# map source to target ? seed [rule]
+FindInBin ← +⟜(⊣◇⊡⊣⊚⊢◇⍉⊸≤)
+Part₁     ← /↧ ≡⌟𝄈∧(𝄈FindInBin) Parse
+Part₁ In
 
-# split text to blocks
-⊜□¬⌕"\n\n".
-# seeds from first line
-♭∵⊐parse regex "\\d+" ⊔⊢.
-Seeds ←
-# maps are rotated and sorted by source start
-≡(□ ⊏⍏. ≡(↻1) ↯¯1_3 ∵⊐parse regex "\\d+" ⊔) ↘1
-Recipes ←
-
-# Part 1
-Lookup ← (
-  ,,⊙⊔                   # input: n [mapping]
-  ⊚ ≡(×⊓≤>⊃(⊙⊢|⊙(/+↙2))) # find in range
-  (⋅∘|+⊙(/-⊏0_¯1⊏):⊢)⧻.  # return target or self
+# Part 2: seeds change to [[seedlow seedrange]]
+# In the full data this is 2327072676 values.
+Part₂ ← (
+  ↯∞_2 Parse
+  /◇⊂ ≡(□+⊙⇡°⊟) # this is not feasible for full data
+  /↧ ≡⌟𝄈∧(𝄈FindInBin)
 )
-Fertilize ← (
-  ⍥(
-    ⊙⊃(⊢|↘1) # take next transformation
-    ∵Lookup  # transform each seed
-  )7         # repeat fix times
-  /↧♭ ⊙;     # minimum
-)
-Fertilize Seeds Recipes
-# 324724204
-
-# Part 2
-# This does not work, ranges would be too big
-MultiSeeds ← (
-  ↯¯1_2 Seeds   # build pairs
-  ⊐≡(+⊃(⇡⊢⇌|⊢)) # build ranges
-  ⊐/⊂           # merge
-)
-
-Fertilize MultiSeeds Recipes
+Part₂ In
+┌─╴test
+  T ← &fras "2023/input/5t.txt"
+  ⍤⤙≍ 35 Part₁ T
+  ⍤⤙≍ 46 Part₂ T
+└─╴
