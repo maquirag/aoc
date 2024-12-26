@@ -1,15 +1,11 @@
 # AoC 2024/10 Hoof It
 # Experimental!
-&fras "2024/input/10.txt"
-⊜(-@0)⊸≠@\n
-Grid   ←                    # map of heights
-Heads  ← ⊚=0                # starting points of the hiking path
-Next   ← ⊂¯.⊞=.⇡2           # adjacent offsets
-Hikes  ← ▽=-1⤚∩⬚∞⊡◡(+Next¤) # valid next steps from a spot
-Goal   ← =₉⊡                # top spot is reached
-Climb  ← ⊙◌ pathHikes Goal  # Dijkstra pathfinding
-Score  ← ⧻◴ ≡◇⊣ Climb       # unique end points
-Rating ← ⧻ Climb            # number of routes
-Part₁  ← /+ ≡Score ⊃Heads¤
-Part₂  ← /+ ≡Rating ⊃Heads¤
-⊂⊃Part₁Part₂ Grid
+&fras "2024/input/10t.txt"
+In     ←                    # input
+Grid   ← ⊜(-@0)⊸≠@\n        # map of heights
+Heads  ← ⊚=0                # starting points
+Hikes  ← ▽=-1 ⤚∩⌟⬚∞⊡ ⊸≡⌟+A₂ # valid next steps
+Solve! ← /+ ≡⌟(^0 pathHikes(=₉⊡)) ⊸Heads Grid
+Part₁  ← Solve!(⧻◴≡⊣)
+Part₂  ← Solve!⧻
+⊂⊃Part₁Part₂ In
