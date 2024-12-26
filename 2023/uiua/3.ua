@@ -1,28 +1,22 @@
-# Day 3 - Gear Ratios
-d ← +@0⇡10 # all digit characters
-
-Raw ← &i "files.ua" "Raw"
-Raw 3
-⊃(⊜∘≠@\n.|⊂∞⊜⋕∊:d.)
-I ←                           # full input matrix
-n ←                           # all numbers
-m ← × ⍜♭(\+ ≡/> ◫2 ⊂0). ∊:d I # marked numbers
-PartOne ← (
-  ∩(↯¯1_3_3 ◫3_3) I m # windows of 3x3
-  ▽≡(¬∊: ⊂@.d ⊡1_1)   # filter where symbol is middle
-  ▽>0.⊝♭              # dedupe and remove 0
-  /+ ⊏:n              # map actual numbers, and add
+# AoC 2023/03 Gear Ratios
+In    ← &fras "2023/input/3.txt"
+D     ← +@0⇡10           # digits
+P     ← ⊃(⊜∘⊸≠@\n|⊜⋕⊸∊D) # out: [[map]] [numbers]
+MaskN ← ⍜♭(×\+⧈₂/>⊂0.∊D) # mask all numbers
+AdjN! ← (
+  ^0 ⟜MaskN P # mark symbols and numbers
+  ∩(♭₃⧈∘3_3)  # create groups of 3
+  ▽≡(⊡1_1)    # filter where symbol is in middle
+)             # choose groups next to given symbol
+Part₁ ← /+ ⊏-1◴▽⊸>0♭ AdjN!(¬∊⊂@.D)
+Part₂ ← (
+  AdjN!(=@*)
+  ▽⊸(=3≡(⧻◴))≡♭      # gears only
+  /+≡/× ⊏ -1≡(◴▽⊸>₀) # lookup number pairs
 )
-PartOne
-# 520019
-
-PartTwo ← (
-  ∩(↯¯1_3_3 ◫3_3) I m # windows of 3x3
-  ≡(=@*⊡1_1)          # find gears
-  ⊙(≡(□▽≠0.⊝♭))       # unique numbers in window
-  ⊙⊃(≡(=2⧻)|∘)        # windows with 2 distinct numbers
-  ▽×                  # filter both gear + 2 num
-  /+ ⊐≡(/×⊏:n)        # map numbers and multiply
-)
-PartTwo
-# 75519888
+⊂⊃Part₁Part₂ In
+┌─╴test
+  T ← &fras "2023/input/3t.txt"
+  ⍤⤙≍ 4361 Part₁ T
+  ⍤⤙≍ 467835 Part₂ T
+└─╴
