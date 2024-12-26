@@ -1,6 +1,6 @@
 # AoC 2024/14 Restroom Redoubt
 &fras "2024/input/14.txt"
-⊜⋕⊸∈⊂@-+@0⇡10                    # get numbers
+⊜⋕⊸∊⊂@-+@0⇡10                    # get numbers
 ⊃↙↘2⍉↯∞_4                        # rotate and organize
 P      ←                         # position
 V      ←                         # velocity
