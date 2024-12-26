@@ -1,6 +1,6 @@
 # AoC 2024/24 Crossed Wires
+# TODO
 # Experimental!
-# AND ↧  OR ↥  XOR ≠
 &fras "2024/input/24.txt"
 °$"_\n\n_"
 map⊜⊃(↙3|⋕⊡5)⊸≠@\n # initial values

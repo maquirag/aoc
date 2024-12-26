@@ -1,5 +1,6 @@
 # AoC 2024/15 Warehouse Woes
-&fras "2024/input/15.txt"
+# TODO
+&fras "2024/input/15t.txt"
 ⊜∘⊸≠@\n °$"_\n\n_"
 W ← # warehouse
 ▽⊸≠@\n

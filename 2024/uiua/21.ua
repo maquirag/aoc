@@ -1,6 +1,7 @@
 # AoC 2024/21 Keypad Conundrum
+# TODO
 # Experimental!
-&fras "2024/input/21.txt"
+&fras "2024/input/21t.txt"
 ≡◇∘ °/$"_\n_"
 In ←
 K  ← ["789" "456" "123" ".0A"] # keypad
@@ -28,4 +29,5 @@ Optimum ← (
   /↧wait≡pool(⧻⊢Layer!D) # second dir best length
 )
 Part₁ ← /+◡× ≡⊃(⋕↙3|Optimum)
-$time ⍜(now|$result Part₁ In)
+# $time ⍜(now|$result Part₁ In) # it works, but slow
+# Part 2 requires 25 layers of D

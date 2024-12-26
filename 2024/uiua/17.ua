@@ -1,6 +1,7 @@
 # AoC 2024/17 Chronospatial Computer
+# TODO
 # Experimental!
-&fras "2024/input/17.txt"
+&fras "2024/input/17t.txt"
 ↯∞_2 ⊃↘↙3 ⊜⋕⊸∊ +@0⇡10
 Inst ← # instructions
 # Operands: 0-3 = op; 4 = A; 5 = B; 6 = C
