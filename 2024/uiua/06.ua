@@ -1,20 +1,23 @@
 # AoC 2024/06 Guard Gallivant
+# Experimental!
 &fras "2024/input/06.txt"
-⊜∘⊸≠@\n
-Guard ← ⊢⊚⌕@^ # current position of Guard
-# obstacle comes next ? coord field
-# 0=free, 1=obstacle, 2=out of range
-BlockAhead ← ⨬(2◌◌|=@#⊡-1_0)±⊸⊢,,
-MoveGuard  ← ⍜(⊡|@^◌)-1_0⟜⍜(⊡|@X◌)
-Step       ← ⨬(MoveGuard|⇌⍉◌|◌)BlockAhead⊸Guard
-Part₁      ← /+♭∈"^X"⍥Step∞
-Part₁
-
-# get guard position
-# calc new position 1 row up
-#   if obstacle, rotate field left
-#   if out of range, stop
-#   else mark current pos wth X, mark new pos with ^
-# continue until cannot move further
-
-# ⊃Part₁Part₂
+⊃(△|⊚=@#|𝄈⊂¯1_0⊚=@^) ⊜∘⊸≠@\n
+L     ←                    # lab size [limx limy]
+B     ←                    # blocking coords [[x y]]
+G     ←                    # Guard state [[x y] [dx dy]]
+Turn  ← memo(⍜⊣(⊡⊃𝄈⊗↻₁A₂)) # Guard turn right
+InLab ← memo(/↧↧⊃(≥0|<L)⊢) # Guard is within lab
+Block ← ◡(𝄐𝄈∊/+)           # Guard had obstacle ahead
+Move  ← memo(⊟⊃/+⊣)        # move Guard
+# Track each position of the guard through obstacles.
+# Macro arg is the loop condition.
+Route! ← ⊙⊙◌⍢(⨬(Move|Turn)Block⟜⊂|^0)⟜(▽0¤)
+Part₁  ← ⧻◴≡⊢ ◌Route!InLab G B
+# Infinite loop obstruction must be in the guard path.
+# Add each step to list of obstacles and simulate.
+Part₂ ← (
+  ◴≡⊢◌Route!InLab G B
+  /+ wait≡pool(𝄈∊Route!(↧¬⊃𝄈∊InLab)) ¤G ≡⌞⊂ B
+)
+⍜now($part₁ Part₁)
+⍜now($part₂ Part₂)
