@@ -7,7 +7,7 @@ Ord ← # ordering pairs
 Seq ← # page sequences
 
 Pairs     ← ▽⊃(♭⊞>.⇡⧻|♭₂⊞⊟.)
-ValidPair ← ¬∈Ord⇌
+ValidPair ← ¬∊Ord⇌
 ValidSeq  ← /×≡ValidPair◇Pairs
 Middle    ← ⊡⌊÷2⧻.
 Part₁     ← /+▽≡⊃ValidSeq◇Middle Seq
@@ -19,7 +19,7 @@ Part₂   ← /+≡(⨬(Middle◇FixSeq|0)⊸ValidSeq) Seq
 # ⊂⊃Part₁Part₂
 
 # Yernab APL solution
-Sort ← ⊏⍖⊞(∈Ord⊂)..
+Sort ← ⊏⍖⊞(∊Ord⊂)..
 Mid  ← ⊡⌊÷₂⊸⧻
 P₁   ← /+×≡◇⊃(≍⊸Sort|Mid)
 P₂   ← /+×≡◇(¬⊃≍Mid⊸Sort)
