@@ -1,29 +1,22 @@
-# Day 4 - Scratchcards
-Data ← &i "files.ua" "Lines"
-Data 4
-
-. # Part 1
-Game ← (
-  ¬∊:":|".°□ # split by special char
-  ⊜(□♭≡⋕ regex "\\d+")
-  ↘1 # discard the game ID
+# AoC 2023/04 Scratchcards
+In ← &fras "2023/input/4.txt"
+P ← (
+  ⊜(↘1⊜□¬⊸∊":|")⊸≠@\n # split lines in 3 parts
+  ∩∵◇(⊜⋕⊸≠@\s)°⊟⍉     # out: [[winners]] [[tips]]
+)                     # parse
+Match ← ≡(/+♭⊞=)
+Part₁ ← /+ⁿ⊙2-1 ▽⊸>₀ Match P
+Part₂ ← (
+  Match P   # scores in each game
+  ⟜(▽⊙1⧻)⊙0 # fold setup: [points] [cards] total
+  ◌∧(
+    ⊙⊃(⊢|↘1|+⊢)  # increment total
+    ⬚0+↙↧◡∩⧻×▽⊙1 # deal more cards (respect end of deck)
+  )
 )
-Matches ← /+♭⊞⌕ ∩°□⊃⊢(⊢⇌)
-Score ← ⌊ⁿ:2-1
-/+≡(Score Matches Game)
-# 33950
-
-: # Part 2
-Copies ← (
-  0 :▽:1⧻.
-  ⍢(
-    ▽⊙1 ⊡,,          # cards won
-    ×⊙(⊡,:)⊙⊙,       # copies
-    :⊂▽:0+1,         # shift right by game id
-    ⊙(⊙+:↙⊙(⬚0↙).⧻,) # resize and add
-    +1               # iterate
-  )(>⊙⧻)             # all cards processed
-  ;;                 # clean stack
-)
-/+ Copies ≡(Matches Game)
-# 14814534
+⊂⊃Part₁Part₂ In
+┌─╴test
+  T ← &fras "2023/input/4t.txt"
+  ⍤⤙≍ 13 Part₁ T
+  ⍤⤙≍ 30 Part₂ T
+└─╴
