@@ -1,4 +1,0 @@
-Raw ← &fras $"../input/_.txt"
-Row! ← ⊜^1≠@\n.
-Lines ← Row!□ Raw
-Nums ← ⊐∵⋕ regex "\\d+"

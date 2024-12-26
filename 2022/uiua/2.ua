@@ -1,18 +1,14 @@
-# Day 2 - Rock Paper Scissors
-Data ← &i "util.ua" "Lines"
-Data 2
-In ← # input
-
-# Part 1
-Moves ← [⊃(⊗:"ABC"⊢)(⊗:"XYZ"⊢⇌)] # [@A|@B|@C @X|@Y|@Z]
-Wins ← ≡↻1_0_¯1¤⇡3               # win matrix Lose|Draw|Win
-Match ← |1 ⊡: Wins               # [EnemyMove MyMove]
-Points ← ⊞+ 1_2_3 0_3_6          # (Rock|Paper|Scissors) (Lose|Draw|Win)
-Score ← |2 ⊡: Points ⊟           # Move Result
-/+ ≡(Score ⊃(⊢⇌)Match Moves) In
-# 12855
-
-# Part 2
-MyMove ← |1 ⊗⊢⇌: ⊡⊢, Wins # [EnemyMove ExpectedResult]
-/+ ≡(Score ⊃(⊢⇌)Match [⊃⊢MyMove] Moves) In
-# 13726
+# AoC 2022/02 Rock Paper Scissors
+In    ← &fras "2022/input/2.txt"
+Parse ← ↯∞_2▽⊸≥@A
+Map   ← ⍜(°⊟⍉|⊓(⊗:"ABC"|⊗:"XYZ")) # rock paper scissors
+# Part 1: X=rock, Y=paper, Z=scissors
+Part₁ ← /+ +1 ≡(+⊃(⊡:[3 6 0]◿3/-|⊣)) Map Parse
+# Part 2: X=lose, Y=draw, Z=win
+Part₂ ← /+ +1 ≡(+◿3+⊃(⊢|⊡:[¯1 0 1]⊣|⊡:[0 3 6]⊣)) Map Parse
+⊂⊃Part₁Part₂ In
+┌─╴test
+  T ← &fras "2022/input/2t.txt"
+  ⍤⤙≍ 15 Part₁ T
+  ⍤⤙≍ 12 Part₂ T
+└─╴

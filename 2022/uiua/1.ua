@@ -1,14 +1,12 @@
-# Day 1 - Calorie Counting
-Data ← &i "util.ua" "Raw"
-Data 1               # read data
-⊜(□⊜⋕≠@\n.)¬⌕"\n\n". # group by empty lines
-In ←
-
-# Part 1
-
-/↥ ≡(/+°□) In
-# 70116
-
-# Part 2
-/+ ↙3 ⊏⍖. ≡(/+°□) In
-# 206582
+# AoC 2022/01 Calorie Counting
+In     ← &fras "2022/input/1.txt"
+Parse  ← ⊜(□⊜⋕⊸≠@\n)¬⊸⌕"\n\n"
+Solve! ← /+ ^0 ⍆ ≡◇/+ Parse
+Part₁  ← Solve!⊣
+Part₂  ← Solve!(↙¯3)
+⊂⊃Part₁Part₂ In
+┌─╴test
+  T ← &fras "2022/input/1t.txt"
+  ⍤⤙≍ 24000 Part₁ T
+  ⍤⤙≍ 45000 Part₂ T
+└─╴
