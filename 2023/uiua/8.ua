@@ -1,27 +1,21 @@
-# Day 8 - Haunted Wasteland
-Data ← &i "files.ua" "Raw"
-Data 8
-
-regex "\\w+"
-⊃(♭∵°□⊢|↯¯1_3_3∵°□↘1)
-D ← # directions
-⊃(≡⊢|≡(⊡1)|≡(⊢⇌))
-S ← # start
-L ← # left
-R ← # right
-ZZZ ← ¬≍"ZZZ"
-Follow! ← ;;⍢(⊙⊙(+1) ⊏ ⊙⊃((L|R)=@R⊢|↻1) ⊗:S)(^1)
-
-# Part 1
-Follow!ZZZ "AAA" D 0
-# 16897
-
-# Part 2
-EndZ ← ≠@Z⊢⇌
-GCD ← ;⍢(⊃(-×⌊÷,,)∘)(≠0)
-LCM ← ÷⊃GCD×
-
-▽≡(=@A⊢⇌).S # all starting nodes
-≡(Follow!EndZ :⊙: D 0)
-/LCM
-# 16563603485021
+# AoC 2023/08 Haunted Wasteland
+# Experimental!
+In ← &fras "2023/input/8.txt"
+Parse ← ∩□⊓(
+  ⊗:"LR"
+| map≡°⊂↯∞_3_3⊜∘¬⊸∊" ,=()\n"
+)°$"_\n\n_" # parse out: [dirs] [nodemap]
+# input: startnode [dirs] [nodemap]  output: num steps
+Walk! ← ◌◌◌⍢(⊙⊙⊙+₁◇⊃(↻1|⊡⊢)⊙⊸◇get|^0⋅∘):⊙⊙⊙0
+Part₁ ← Walk!(¬≍"ZZZ") "AAA" Parse
+LCM   ← /(÷⊃∨×) # lowest common multiple
+Part₂ ← LCM ≡Walk!(≠@Z⊣) ▽=@A⊸≡⊣◌:◡⋅◇°map Parse
+⊂⊃Part₁Part₂ In
+┌─╴test
+  T₁ ← &fras "2023/input/8t.txt"
+  T₂ ← &fras "2023/input/8t2.txt"
+  T₃ ← &fras "2023/input/8t3.txt"
+  ⍤⤙≍ 2 Part₁ T₁
+  ⍤⤙≍ 6 Part₁ T₂
+  ⍤⤙≍ 6 Part₂ T₃
+└─╴
