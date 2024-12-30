@@ -1,13 +1,12 @@
-# Day 6 - Tuning Trouble
-Data ← &i "util.ua" "Raw"
-Data 6
-In ←
-
-# Part 1
-M ← +⊗,≡(⧻⊝)◫,:
-M 4 In
-# 1238
-
-# Part 2
-M 14 In
-# 3037
+# AoC 2022/06 Tuning Trouble
+In     ← &fras "2022/input/6.txt"
+Parse  ← ⊜□⊸≠@\n
+Signal ← +⟜(⊢⊚⧈(/×◰))
+Part₁  ← ≡◇Signal 4 Parse
+Part₂  ← ≡◇Signal 14 Parse
+⊟⊃Part₁Part₂ In
+┌─╴test
+  T ← &fras "2022/input/6t.txt"
+  ⍤⤙≍ [7 5 6 10 11] Part₁ T
+  ⍤⤙≍ [19 23 23 29 26] Part₂ T
+└─╴
