@@ -1,23 +1,21 @@
-# Day 5 - Supply Stacks
-Data ← &i "util.ua" "Lines"
-Data 5
-⊜□≠1♭≡(⊗"1"°□). # separate main parts
-≡(□▽≠@ .) ▽=1◿4⇡⧻. ⍉≡°□ °□⊢.
-Stacks ←
-≡(⍜(↘1|-1) ♭∵⋕ regex "\\d+") °□⊡1
-Moves ←
-
-# Part 1
-SplitStep ← ∧(⊂:↯¯1_3▽⊃⊢⍜⊢(>0))⊙[] # [[x y z]...]
-Move ← (|2
-  # [x y z] {□stacks}
-  ⊃(⊡2|⊡0|⊡1)           # extract values
-  ⊙⊃(↙⊙(°□⊏))(⍜⊙(°□⊏)↘) # pull top x from y
-  ⍜⊙(°□⊏)⊂ :            # add the value to z
+# AoC 2022/05 Supply Stacks
+# Experimental!
+In ← &fras "2022/input/5.txt"
+Parse ← (
+  °$"_\n\n_"
+  ⊓(≡(□▽⊸≠@\s) ▽=1◿4⇡⊸⧻⍉↘¯1 ⊜∘⊸≠@\n # boxed letters
+  | ⊜(⊟₃∩₃⋕°$"move _ from _ to _")⊸≠@\n)
+  ⍜(↘1⍉|-1) : # normalize stack indices
+)             # format input
+Move! ← (
+  ◠(⊟ ⍚⊙⊂ ⊙^0 ⍚⊃↘↙ ⊙°⊟ ⊙⊏ °⊂) # select and update boxes
+  ⍜⊏◌ ↘1                      # put them back
 )
-≡⊢; ⍢(:Move⊙:⊃(⊢)(↘1))(>0⧻.) SplitStep Moves Stacks
-# TGWSMRBPN
-
-# Part 2
-≡⊢; ⍢(:Move⊙:⊃(⊢)(↘1))(>0⧻.) Moves Stacks
-# TZLTLWRNF
+Part₁ ← ∵◇⊢ ∧Move!⇌ Parse
+Part₂ ← ∵◇⊢ ∧Move!∘ Parse
+⊟⊃Part₁Part₂ In
+┌─╴test
+  T ← &fras "2022/input/5t.txt"
+  ⍤⤙≍ "CMZ" Part₁ T
+  ⍤⤙≍ "MCD" Part₂ T
+└─╴
