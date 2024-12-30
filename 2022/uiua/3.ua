@@ -1,15 +1,13 @@
-# Day 3 - Rucksack Reorganization
-Data ← &i "util.ua" "Lines"
-Data 3
-In ← # input
-
-# Part 1
-Misplaced ← ⊡⊢♭⊚ ⊞= ⊃↙↘ ÷2⧻..°□ # Find common in two halves
-Score ← -(@&|@`)>@Z.            # calculate value of uppercase | lowercase
-/+≡(Score Misplaced) In
-# 7863
-
-# Part 2
-Intersect ← |2 ⊏⊢⍉⊚ ⊞= ,∩⊝ # common elements of two
-/+♭ ⊐≡(Score /Intersect) ↯¯1_3 In
-# 2488
+# AoC 2022/03 Rucksack Reorganization
+In     ← &fras "2022/input/3.txt"
+Parse  ← ⊜□⊸≠@\n
+Common ← ▽⊸∊∩◴
+Prio   ← +×58⊸<0-@`
+Part₁  ← /+ Prio ≡◇(⊢Common °⊟ ↯2_∞) Parse
+Part₂  ← /+ Prio ≡(⊢/◇Common) ↯∞_3 Parse
+⊂⊃Part₁Part₂ In
+┌─╴test
+  T ← &fras "2022/input/3t.txt"
+  ⍤⤙≍ 157 Part₁ T
+  ⍤⤙≍ 70 Part₂ T
+└─╴
