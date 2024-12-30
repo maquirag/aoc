@@ -1,17 +1,15 @@
-# Day 4 - Camp Cleanup
-Util ← &i "util.ua"
-  Raw ← Util "Raw"
-  Row! ← Util "Row!"
-Row!(⊜⋕¬∊:"-,".) Raw 4
-In ← # input
-
-# Part 1
-SE ← ↯¯1_2 ↻1            # start end compare
-C ← ↥⊃(/↧≡/≤|/↧≡/≥) ⍉ SE # full coverage
-/+ ≡C In
-# 509
-
-# Part 2
-I ← ↧⊃(/↥≡/≤|/↥≡/≥) ⍜⊢⇌ SE # intersection
-/+ ≡I In
-# 870
+# AoC 2022/04 Camp Cleanup
+In ← &fras "2022/input/4.txt"
+# ranges a ≤ b, c ≤ d
+Parse ← ↯∞_4 ⊜⋕¬⊸∊"-,\n"
+# Contain: b≥d and c≥a, or vice versa: [b_c d_a]
+# Crosses: b≥c and d≥a, or vice versa: [b_d c_a]
+Intersect! ← ↥⊃(/↧/≤|/↧/≥) ^0 ↯2_2 ↻1
+Part₁      ← /+ ≡Intersect!∘ Parse
+Part₂      ← /+ ≡Intersect!⍉ Parse
+⊂⊃Part₁Part₂ In
+┌─╴test
+  T ← &fras "2022/input/4t.txt"
+  ⍤⤙≍ 2 Part₁ T
+  ⍤⤙≍ 4 Part₂ T
+└─╴
