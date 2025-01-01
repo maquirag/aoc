@@ -1,25 +1,17 @@
-Util ← &i "util.ua"
-  Raw ← Util "Raw"
-  Row! ← Util "Row!"
-Row!∵⋕ Raw 8
-In ←
-
-# Part 1
-V ← >⬚¯1⊂¯1↘¯1\↥. # visible
-R! ← ⍜(⍥(⍉⇌)∘|^1) # rotate then undo
-/+ ♭ /↥ ≡R!V ⇡4 ¤In
-# 1832
-
-# Part 2
-D ← (
-  ≡(≡(□↙) ⊃(⇡⧻|¤)) . # take left n-1 values in each line
-  # > mark all numbers left to n which are smaller
-  # ⇌ reverse so it starts with number closest to n
-  # \× create list of consecutive smaller numbers
-  # /+ add them all
-  # +1 the next tree is also counted, regardless of size
-  # ↧⊃...⧻ cannot see more trees than what is left of n
-  ∵(↧⊃(+1/+\×°□⇌>|⧻))
-  ≡(⍜⊢(0;)) # leftmost visibility is always zero
-)           # Viewing Distance
-/↥ ♭ /× ≡R!D ⇡4 ¤In
+# AoC 2022/08 Treetop Tree House
+In      ← &fras "2022/input/8.txt"
+Parse   ← ⊜∵⋕⊸≠@\n
+Visible ← >⊂₋₁↘₋₁⊸\↥    # Every tree to the north is smaller
+Sides!  ← ≡⍜⍥(⍉⇌)^0 ⇡4¤ # Do with 4 rotations, then rotate back
+Part₁   ← /+♭ /↥ Sides!Visible Parse
+# n is bigger than each number west of it.
+# Count how many are consecutively smaller to the west.
+# Count the next tree too, but only up to the edge.
+Viewing ← ↧∵◇⊃(⧻|+1/+\↧⇌) >⊸≡(≡(□↙) ⇡⊃⧻¤)
+Part₂   ← /↥ ♭ /× Sides!Viewing Parse
+⊂⊃Part₁Part₂ In
+┌─╴test
+  T ← &fras "2022/input/8t.txt"
+  ⍤⤙≍ 21 Part₁ T
+  ⍤⤙≍ 8 Part₂ T
+└─╴
