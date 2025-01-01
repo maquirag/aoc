@@ -1,9 +1,11 @@
-# Day 1: Sonar Sweep
-In ← ⊜⋕≠@\n. &fras "../input/1.txt"
-# In ← [199 200 208 210 200 207 240 269 260 263]
-# Part 1
-Increase ← ≡/>◫2
-/+ Increase In
-# Part 2
-ThreeSum ← ≡/+◫3
-/+ Increase ThreeSum In
+# AoC 2021/01 Sonar Sweep
+In    ← &fras "2021/input/1.txt"
+Parse ← ⊜⋕⊸≠@\n
+Part₁ ← /+ ⧈₂/> Parse
+Part₂ ← /+ ⧈₂/> ⧈₃/+ Parse
+⊂⊃Part₁Part₂ In
+┌─╴test
+  T ← &fras "2021/input/1t.txt"
+  ⍤⤙≍ 7 Part₁ T
+  ⍤⤙≍ 5 Part₂ T
+└─╴
