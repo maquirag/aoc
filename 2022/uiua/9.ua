@@ -1,18 +1,18 @@
-# Day 9: Rope Bridge
-Raw ← &i "util.ua" "Raw"
-⊜⊃(⊢|⋕↘2) ≠@\n. Raw "9t2"
-∧(⊂: ▽: [(1|i|¯1|¯i)⊗:"RULD"]) ⊙⊙[]
-Moves ←
-
-# Part 1
-Head ← ⍜⊢+:
-Move ← ⊂⊙(↘<2⌵-), ⊃(⊡1|+⊢|∘) : # dir [chain]
-# tail moves to the previous head position
-# when it gets too far
-⧻⊝↘1 ∧Move Moves ▽2[ℂ 0 0]
-# 6087
-
-# Part 2 -- incorrect
-# first ten segments should be moved separately
-# ⧻⊝↘9 ∧Move Moves ▽2[ℂ 0 0]
-# TODO
+# AoC 2022/09 Rope Bridge
+# TODO Part 2
+In    ← &fras "2022/input/9t2.txt"
+Parse ← ⊜□⊸≠@\n
+Moves ← /◇⊂ ≡⍚(▽⊃(⋕↘2|⨬(1|i|¯1|¯i)⊗:"RDLU"⊢)) # ℂ dirs
+# in: dir [rope], out: newhead [rope]
+Move ← +⊸⊙⊢
+# If the new head is too far from the next knot,
+# then prepend to the rope, otherwise replace the first value
+Adjust ← ⨬(⊂|⊂⊙↘₁)◡(<2⌵-⊙⊡₁)
+Part₁  ← ⧻◴ ↘1 ∧(Adjust Move) ⊙(▽2 ℂ 0 0) Moves Parse
+Part₂  ← ∘
+# ⊂⊃Part₁Part₂ In
+┌─╴test
+  T ← &fras "2022/input/9t.txt"
+  ⍤⤙≍ 13 Part₁ T
+  #   ⍤⤙≍ 36 Part₂ T
+└─╴
