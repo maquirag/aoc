@@ -1,24 +1,18 @@
-# Day 4: Giant Squid
-&fras "../input/4.txt"
-⊙(↯¯1_5_5) ∩(♭∵⋕ regex "\\d+") ⊃↙↘ ⊗@\n.
-Numbers ←
-Bingo ←
-
-# Part 1
-Mark ← ∊Bingo ↙:Numbers # arg: N (numbers drawn)
-Winner ← /↥=5⊂⊃(≡/+|/+) # arg: bool board 5x5
-
-⊃≡Winner∘ ⊃(Mark|∘) 0             # initial checks
-⍢(⊃≡Winner∘ ⊃(Mark|∘)+1;;)(=0/↥.) # first winner
-⊙⊙(⊡:Numbers-1)                   # last number called
-∩▽,Bingo                          # keep winning table and mask
-×/+▽¬:∩♭                          # score from all unmarked
-
-# Part 2
-⊃≡Winner∘ ⊃(Mark|∘) 0               # initial checks
-⍢(⊃≡Winner∘ ⊃(Mark|∘)+1;;)(>1/+=0.) # last loser
-⊙⊙:⊙:⊃(∘|⊢⊚¬)                       # save index of last loser
-⍢(⊃≡Winner∘ ⊃(Mark|∘)+1;;)(=0/↧.)   # continue until won
-⊙⊙(⊡:Numbers-1)                     # last number called
-∩⊡,Bingo:⊙:;                        # keep winning table and mask
-×/+▽¬:∩♭                            # score the last loser
+# AoC 2021/04 Giant Squid
+In     ← &fras "2021/input/4.txt"
+Parse  ← ⊙(↯∞_5_5) ∩(⊜⋕¬⊸∊"\n, ") °$"_\n\n_"
+Winner ← /↥=5⊂⊃/+≡/+
+Bingo! ← (
+  # in: [numbers] [[[boards]]]
+  \+ ◡⊞=           # hits in time sequence △[number board row col]
+  ⤚⊡⊸(^0 ≡₂Winner) # select winner △[number board]
+  ⊙(:∩⊡⊙:°⊟)       # out: [[winner hits]] [[winner board]] number
+)
+Part₁ ← ×/+♭×¬ Bingo!(⊢⊚) Parse          # first winner
+Part₂ ← ×/+♭×¬ Bingo!(⊂:⊚⤚=⊸/↥⊗1⍉) Parse # last winner
+⊂⊃Part₁Part₂ In
+┌─╴test
+  T ← &fras "2021/input/4t.txt"
+  ⍤⤙≍ 4512 Part₁ T
+  ⍤⤙≍ 1924 Part₂ T
+└─╴
