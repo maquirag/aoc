@@ -1,7 +1,13 @@
-# Day 6: Lanternfish
-In ← ⊜⋕ ¬∊:",\n". &fras "../input/6.txt"
-# Part 1
-Grow ← ⬚0+ ⊃(⊂⊚6⊢|↻1)
-/+ ⍥Grow80 ⬚0↙9°⊚ In
-# Part 2
-/+ ⍥Grow256 ⬚0↙9°⊚ In
+# AoC 2021/06 Lanternfish
+In    ← &fras "2021/input/6.txt"
+Parse ← ⬚0↙9 °⊚ ⊜⋕⊸>@0
+Sim   ← /+ ⍥(⍜⊡₆+ ⊃↻₁⊢)
+Part₁ ← Sim 80 Parse
+Part₂ ← Sim 256 Parse
+⊂⊃Part₁Part₂ In
+┌─╴test
+  T ← &fras "2021/input/6t.txt"
+  ⍤⤙≍ 26 Sim 18 Parse T
+  ⍤⤙≍ 5934 Sim 80 Parse T
+  ⍤⤙≍ 26984457539 Sim 256 Parse T
+└─╴
