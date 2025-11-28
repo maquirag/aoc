@@ -1,5 +1,4 @@
 # AoC 2019/04 Secure Container
-# Experimental!
 In        ← &fras "2019/input/04.txt"
 Parse     ← ⊜⋕⊸≠@-
 IncDigits ← ⧅₆≤⇡10            # six digits incrementing

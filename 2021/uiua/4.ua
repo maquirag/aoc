@@ -8,8 +8,8 @@ Bingo! ← (
   ⤚⊡⊸(^0 ≡₂Winner) # select winner △[number board]
   ⊙(:∩⊡⊙:°⊟)       # out: [[winner hits]] [[winner board]] number
 )
-Part₁ ← ×/+♭×¬ Bingo!(⊢⊚) Parse          # first winner
-Part₂ ← ×/+♭×¬ Bingo!(⊂:⊚⤚=⊸/↥⊗1⍉) Parse # last winner
+Part₁ ← ×/+♭×¬ Bingo!(⊢⊚) Parse           # first winner
+Part₂ ← ×/+♭×¬ Bingo!(⊂:⊚⤚=⊸/↥˜⨂1⍉) Parse # last winner
 ⊂⊃Part₁Part₂ In
 ┌─╴test
   T ← &fras "2021/input/4t.txt"

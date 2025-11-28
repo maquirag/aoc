@@ -1,5 +1,4 @@
 # AoC 2019/02 1202 Program Alarm
-# Experimental!
 In ← &fras "2019/input/02.txt"
 P  ← ⊜⋕⊸≠@, # parse
 # stack: cursor [program]

@@ -8,7 +8,7 @@ Command ← (
   ⨬(⍜⊣+:           # down: aim+
   | ⍜⊣+:¯          # up: aim-
   | ⍜⊡₁+⊃(⍜⊢+|×⊣): # forward: pos+x, dep+ n×aim 
-  )⊗:"duf"
+  )˜⨂:"duf"
 )
 Part₂ ← /×↙2 ∧Command Parse ⊙0_0_0 # [pos depth aim]
 ⊂⊃Part₁Part₂ In
