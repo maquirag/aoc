@@ -1,11 +1,11 @@
 # AoC 2019/03 Crossed Wires
 # Experimental!
 In      ← &fras "2019/input/03.txt"
-Parse   ← ∩(⊜⍜°⊂⊓(𝄈⊗"RDLU"|⋕)⊸≠@,)°$"_\n_" # ∩[[dir dist]*]
-Wire    ← ⇌∧(⊂⇌+⌟×⌞⊃(𝄈⊡A₂⊢|+1⇡⊣|⊸⋅⊢)) ⊙[0_0]
+Parse   ← ∩(⊜⍜°⊂⊓(⨂"RDLU"|⋕)⊸≠@,)°$"_\n_" # ∩[[dir dist]*]
+Wire    ← ⇌∧(⊂⇌+⌟×⌞⊃(˜⊡A₂⊢|+1⇡⊣|⊸⋅⊢)) ⊙[0_0]
 Crosses ← ▽⊸≡(¬≍0_0)⍜°▽-₁⍆⊂∩◴ # combine coords for crossing
 Part₁   ← /↧≡/+⌵ Crosses ∩Wire Parse
-Part₂   ← /↧+∩⌞≡⊗ ⊃Crosses∩¤ ∩Wire Parse
+Part₂   ← /↧+∩⌞≡˜⨂ ⊃Crosses∩¤ ∩Wire Parse
 ⊂⊃Part₁Part₂ In
 ┌─╴test
   T₁ ← $ R8,U5,L5,D3

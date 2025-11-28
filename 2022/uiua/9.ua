@@ -1,7 +1,7 @@
 # AoC 2022/09 Rope Bridge
 In    ← &fras "2022/input/9.txt"
 Parse ← ⊜□⊸≠@\n
-Moves ← /◇⊂ ≡⍚(▽⊃(⋕↘2|⨬(1|i|¯1|¯i)⊗:"RDLU"⊢)) # ℂ dirs
+Moves ← /◇⊂ ≡⍚(▽⊃(⋕↘2|⨬(1|i|¯1|¯i)˜⨂:"RDLU"⊢)) # ℂ dirs
 Rope  ← ▽: ℂ0 0
 # [ℂ ℂ] When too far, move the second one closer.
 Follow ← ⨬(⍜⊣+⟜(⍜°ℂ∩±/-⇌)|∘) ⊸(<2⌵/-)

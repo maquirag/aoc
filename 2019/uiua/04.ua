@@ -4,7 +4,7 @@ In        ← &fras "2019/input/04.txt"
 Parse     ← ⊜⋕⊸≠@-
 IncDigits ← ⧅₆≤⇡10            # six digits incrementing
 HasRep!   ← ▽⊸(/↥ ^0 ⬚∞⧈₂/=⍉) # filter repeating
-Num       ← ≡°base₁₀ ⍜⍉⇌      # convert to number
+Num       ← ≡°⊥₁₀ ⍜⍉⇌         # convert to number
 InRange   ← ▽×⤚⊃(≤⊙⊢|≥⊙⊣)     # filter range
 Solve!    ← Num HasRep!^0 IncDigits
 Part₁     ← ⧻ InRange Solve!∘ Parse
