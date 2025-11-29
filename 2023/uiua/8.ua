@@ -2,7 +2,7 @@
 # Experimental!
 In ← &fras "2023/input/8.txt"
 Parse ← ∩□⊓(
-  ⊗:"LR"
+  ˜⨂:"LR"
 | map≡°⊂↯∞_3_3⊜∘¬⊸∊" ,=()\n"
 )°$"_\n\n_" # parse out: [dirs] [nodemap]
 # input: startnode [dirs] [nodemap]  output: num steps

@@ -19,7 +19,7 @@ Parse ← (
 ) # out: [seeds] [[rules]₇]
 # map source to target ? seed [rule]
 FindInBin ← +⟜(⊣◇⊡⊣⊚⊢◇⍉⊸≤)
-Part₁     ← /↧ ≡⌟𝄈∧(𝄈FindInBin) Parse
+Part₁     ← /↧ ≡⌟˜∧(˜FindInBin) Parse
 Part₁ In
 
 # Part 2: seeds change to [[seedlow seedrange]]
@@ -27,7 +27,7 @@ Part₁ In
 Part₂ ← (
   ↯∞_2 Parse
   /◇⊂ ≡(□+⊙⇡°⊟) # this is not feasible for full data
-  /↧ ≡⌟𝄈∧(𝄈FindInBin)
+  /↧ ≡⌟˜∧(˜FindInBin)
 )
 Part₂ In
 ┌─╴test

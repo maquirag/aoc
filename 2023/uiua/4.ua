@@ -2,7 +2,7 @@
 In ← &fras "2023/input/4.txt"
 P ← (
   ⊜(↘1⊜□¬⊸∊":|")⊸≠@\n # split lines in 3 parts
-  ∩∵◇(⊜⋕⊸≠@\s)°⊟⍉     # out: [[winners]] [[tips]]
+  ∩≡◇(⊜⋕⊸≠@\s)°⊟⍉     # out: [[winners]] [[tips]]
 )                     # parse
 Match ← ≡(/+♭⊞=)
 Part₁ ← /+ⁿ⊙2-1 ▽⊸>₀ Match P

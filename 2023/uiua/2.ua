@@ -1,10 +1,10 @@
 # AoC 2023/02 Cube Conundrum
 In ← &fras "2023/input/2.txt"
 # Games in rows, RGB in columns
-Groups ← ⊕□⊗⊙"rgb": ∩/◇⊂∵⋕°⊟↘1⍉ regex"(\\d+) (r|g|b)"
-Parse  ← ⊜Groups⊸≠@\n # parse
-Part₁  ← /+ +1⊚ /×≡₂◇/× ≤12_13_14 ⍉ Parse
-Part₂  ← /+/× ∵◇/↥ ⍉ Parse
+RGB   ← ⊕□ ⊓(⨂"rgb"/◇⊂|⋕) °⊟⇌↘1⍉ regex"(\\d+) ([rgb])"
+Parse ← ⊜RGB⊸≠@\n
+Part₁ ← /+ +1⊚ /×≤12_13_14⍉ ≡₀◇/↥ Parse
+Part₂ ← /+ ≡/× ≡₀◇/↥ Parse
 ⊂⊃Part₁Part₂ In
 ┌─╴test
   T ← &fras "2023/input/2t.txt"
