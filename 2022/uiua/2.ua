@@ -1,7 +1,7 @@
 # AoC 2022/02 Rock Paper Scissors
 In    ← &fras "2022/input/2.txt"
 Parse ← ↯∞_2▽⊸≥@A
-Map   ← ⍜(°⊟⍉|⊓(⊗:"ABC"|⊗:"XYZ")) # rock paper scissors
+Map   ← ⍜(°⊟⍉|⊓(˜⨂:"ABC"|˜⨂:"XYZ")) # rock paper scissors
 # Part 1: X=rock, Y=paper, Z=scissors
 Part₁ ← /+ +1 ≡(+⊃(⊡:[3 6 0]◿3/-|⊣)) Map Parse
 # Part 2: X=lose, Y=draw, Z=win

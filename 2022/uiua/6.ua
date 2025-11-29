@@ -1,7 +1,7 @@
 # AoC 2022/06 Tuning Trouble
 In     ← &fras "2022/input/6.txt"
 Parse  ← ⊜□⊸≠@\n
-Signal ← +⟜(⊢⊚⧈(/×◰))
+Signal ← +⟜(⊢⊚⧈(/×⧆₁))
 Part₁  ← ≡◇Signal 4 Parse
 Part₂  ← ≡◇Signal 14 Parse
 ⊟⊃Part₁Part₂ In

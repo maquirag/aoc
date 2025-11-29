@@ -1,3 +1,4 @@
+# FIXME
 # AoC 2022/05 Supply Stacks
 # Experimental!
 In ← &fras "2022/input/5.txt"
@@ -8,11 +9,11 @@ Parse ← (
   ⍜(↘1⍉|-1) : # normalize stack indices
 )             # format input
 Move! ← (
-  ◠(⊟ ⍚⊙⊂ ⊙^0 ⍚⊃↘↙ ⊙°⊟ ⊙⊏ °⊂) # select and update boxes
-  ⍜⊏◌ ↘1                      # put them back
+  ◠(⊟ ⍚⊙⊂ ⊙^ ⍚⊃↘↙ ⊙°⊟ ⊙⊏ °⊂) # select and update boxes
+  ⍜⊏◌ ↘1                     # put them back
 )
-Part₁ ← ∵◇⊢ ∧Move!⇌ Parse
-Part₂ ← ∵◇⊢ ∧Move!∘ Parse
+Part₁ ← ≡◇⊢ ∧Move!⇌ Parse
+Part₂ ← ≡◇⊢ ∧Move!∘ Parse
 ⊟⊃Part₁Part₂ In
 ┌─╴test
   T ← &fras "2022/input/5t.txt"
