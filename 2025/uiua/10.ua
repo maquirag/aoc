@@ -11,7 +11,7 @@ Parse ← (
   )
   ⍉⊟₃
 )
-Solve! ← -1⧻ ⊢path(^¤⊙⋅∘|≍) ⊸×0
+Solve! ← -1⧻ ⊢path(^¤⊙⋅∘|≍|/+⌵-) ⊸×0
 Part₁  ← /+ ≡(Solve!(⌵-) ∩°□°⊟) ⍜⍉(⊏1_0)
 Part₂  ← /+ ≡(Solve!+ ∩°□°⊟) ⍜⍉(⊏2_0)
 # Part 2 works on the test data, but not on the real input.
