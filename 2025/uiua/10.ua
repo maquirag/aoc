@@ -11,18 +11,12 @@ Parse ← (
   )
   ⍉⊟₃
 )
-BestSingle ← (
-  ∩°□°⊟↙2                # buttons and indicators
-  ⋯⇡˜ⁿ2⊸⧻                # button combos
-  ⟜≡⌟(∧(⌵-)⊃(⊏⊚|⋅(×0⊢))) # press buttons
-  ⊓≡/+≡⌟≍                # press counts and matches
-  /↧˜▽                   # least presses
-)
-Part₁ ← /+ ≡BestSingle
-# Part₂ ← ◌ # TODO
-Part₁ Parse In
+Solve! ← -1⧻ ⊢path(^¤⊙⋅∘|≍) ⊸×0
+Part₁  ← /+ ≡(Solve!(⌵-) ∩°□°⊟) ⍜⍉(⊏1_0)
+Part₂  ← /+ ≡(Solve!+ ∩°□°⊟) ⍜⍉(⊏2_0)
+# Part 2 works on the test data, but not on the real input.
 ┌─╴test
   T ← &fras "2025/input/10t.txt"
   ⍤⤙≍ 7 Part₁ Parse T
-  #  ⍤⤙≍ 33 Part₂ Parse T
+  ⍤⤙≍ 33 Part₂ Parse T
 └─╴
